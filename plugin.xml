@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="cordova-plugin-x-payu"
+        version="5.0.12">
+
+  <name>Payu</name>
+
+  <description>
+   Ionic Payu Plugin
+  </description>
+
+  <author>John Peter</author>
+
+  <license>MIT</license>
+
+  <keywords>Ioni, Payu, Payment Gateway</keywords>
+
+  <repo>https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin.git</repo>
+
+  <issue>https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin/issues</issue>
+
+  <engines>
+    <engine name="cordova" version=">=3.0.0"/>
+  </engines>
+
+  <js-module src="www/payu.js" name="SocialSharing">
+    <clobbers target="window.plugins.socialsharing" />
+  </js-module>
+
+  
+
+  <!-- android -->
+  <platform name="android">
+
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="PayUMobile">
+                <param name="android-package" value="com.payu.cordova.sdk.PayUMobileCordovaPlugin" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/PayUMobileCordovaPlugin.java" target-dir="src/com/payu/cordova/sdk" />
+	      <framework src="src/android/build.gradle" custom="true" type="gradleReference" />
+
+    </platform>
+
+  
+
+</plugin>
